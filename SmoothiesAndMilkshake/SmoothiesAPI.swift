@@ -20,7 +20,6 @@ enum SmoothiesAPIError: Error {
 struct SmoothiesAPI {
     
     let smoothiesURLString = "https://api.edamam.com/search?q=smoothies&app_id=c1f22483&app_key=945f948f7024a5bc7f1b053cbd21e477&from=0&to=100"
-    let milkshakeURLString = "https://api.edamam.com/search?q=milkshake&app_id=c1f22483&app_key=945f948f7024a5bc7f1b053cbd21e477&from=0&to=100"
     let session = URLSession.shared
     
     func fetchSmoothies(completion: @escaping (SmoothiesResult) -> Void) {

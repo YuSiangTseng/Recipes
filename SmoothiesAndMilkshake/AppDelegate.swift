@@ -16,16 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let navigationController = window?.rootViewController as? UINavigationController
+        let smoothiesViewController = navigationController?.topViewController as? SmoothiesViewController
         SmoothiesAPI().fetchSmoothies() {
             (smoothiesResult) -> Void in
             switch smoothiesResult {
             case let .Success(smoothies):
-                print(smoothies.count)
+                smoothiesViewController?.drinkStore = DrinkStore(allSmoothies: smoothies)
+                
             case .Failure(_): break
                 //currencyViewController?.showErrorMessage()
             }
         }
-        
+
         return true
     }
 
