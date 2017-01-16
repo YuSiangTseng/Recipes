@@ -13,6 +13,8 @@
 		3D0250E71E2D012200654356 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D0250E51E2D012200654356 /* Main.storyboard */; };
 		3D0250E91E2D012200654356 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D0250E81E2D012200654356 /* Assets.xcassets */; };
 		3D0250EC1E2D012200654356 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D0250EA1E2D012200654356 /* LaunchScreen.storyboard */; };
+		3D3D4D951E2D16CB001C974F /* Smoothies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D4D941E2D16CB001C974F /* Smoothies.swift */; };
+		3D3D4D981E2D18CF001C974F /* SmoothiesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D4D971E2D18CF001C974F /* SmoothiesAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		3D0250E81E2D012200654356 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D0250EB1E2D012200654356 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D0250ED1E2D012200654356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D3D4D941E2D16CB001C974F /* Smoothies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Smoothies.swift; sourceTree = "<group>"; };
+		3D3D4D971E2D18CF001C974F /* SmoothiesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothiesAPI.swift; sourceTree = "<group>"; };
 		6528F63427032051FD3C5041 /* Pods-SmoothiesAndMilkshake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmoothiesAndMilkshake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmoothiesAndMilkshake/Pods-SmoothiesAndMilkshake.debug.xcconfig"; sourceTree = "<group>"; };
 		A2EAFFF225B9B356871DB293 /* Pods_SmoothiesAndMilkshake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmoothiesAndMilkshake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72810258A789D863F331359 /* Pods-SmoothiesAndMilkshake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmoothiesAndMilkshake.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmoothiesAndMilkshake/Pods-SmoothiesAndMilkshake.release.xcconfig"; sourceTree = "<group>"; };
@@ -61,6 +65,7 @@
 		3D0250E01E2D012200654356 /* SmoothiesAndMilkshake */ = {
 			isa = PBXGroup;
 			children = (
+				3D3D4D961E2D16D2001C974F /* Model */,
 				3D0250E11E2D012200654356 /* AppDelegate.swift */,
 				3D0250E31E2D012200654356 /* ViewController.swift */,
 				3D0250E51E2D012200654356 /* Main.storyboard */,
@@ -69,6 +74,15 @@
 				3D0250ED1E2D012200654356 /* Info.plist */,
 			);
 			path = SmoothiesAndMilkshake;
+			sourceTree = "<group>";
+		};
+		3D3D4D961E2D16D2001C974F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3D3D4D941E2D16CB001C974F /* Smoothies.swift */,
+				3D3D4D971E2D18CF001C974F /* SmoothiesAPI.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		AA624C8EFE77DC5D39D68FDB /* Frameworks */ = {
@@ -212,7 +226,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D3D4D951E2D16CB001C974F /* Smoothies.swift in Sources */,
 				3D0250E41E2D012200654356 /* ViewController.swift in Sources */,
+				3D3D4D981E2D18CF001C974F /* SmoothiesAPI.swift in Sources */,
 				3D0250E21E2D012200654356 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +393,7 @@
 				3D0250F21E2D012200654356 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
