@@ -1,0 +1,6 @@
+framework module Pods_SmoothiesAndMilkshake {
+  umbrella header "Pods-SmoothiesAndMilkshake-umbrella.h"
+
+  export *
+  module * { export * }
+}
