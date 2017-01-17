@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             switch smoothiesResult {
             case let .Success(smoothies):
                 smoothiesViewController?.drinkStore = DrinkStore(allSmoothies: smoothies)
-                
             case .Failure(_): break
                 //currencyViewController?.showErrorMessage()
             }

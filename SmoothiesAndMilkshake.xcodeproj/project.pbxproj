@@ -17,6 +17,8 @@
 		3D3D4D981E2D18CF001C974F /* SmoothiesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D4D971E2D18CF001C974F /* SmoothiesAPI.swift */; };
 		3D3D4D9E1E2D803F001C974F /* DrinkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D4D9D1E2D803F001C974F /* DrinkStore.swift */; };
 		3D3D4DA31E2D8AF6001C974F /* SmoothiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D4DA21E2D8AF6001C974F /* SmoothiesViewController.swift */; };
+		3D3D4DA61E2E88A8001C974F /* SmoothiesCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D4DA51E2E88A8001C974F /* SmoothiesCollectionViewDataSource.swift */; };
+		3D3D4DA91E2E915C001C974F /* SmoothiesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D4DA81E2E915C001C974F /* SmoothiesCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		3D3D4D971E2D18CF001C974F /* SmoothiesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothiesAPI.swift; sourceTree = "<group>"; };
 		3D3D4D9D1E2D803F001C974F /* DrinkStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkStore.swift; sourceTree = "<group>"; };
 		3D3D4DA21E2D8AF6001C974F /* SmoothiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothiesViewController.swift; sourceTree = "<group>"; };
+		3D3D4DA51E2E88A8001C974F /* SmoothiesCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothiesCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		3D3D4DA81E2E915C001C974F /* SmoothiesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothiesCollectionViewCell.swift; sourceTree = "<group>"; };
 		6528F63427032051FD3C5041 /* Pods-SmoothiesAndMilkshake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmoothiesAndMilkshake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmoothiesAndMilkshake/Pods-SmoothiesAndMilkshake.debug.xcconfig"; sourceTree = "<group>"; };
 		A2EAFFF225B9B356871DB293 /* Pods_SmoothiesAndMilkshake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmoothiesAndMilkshake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72810258A789D863F331359 /* Pods-SmoothiesAndMilkshake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmoothiesAndMilkshake.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmoothiesAndMilkshake/Pods-SmoothiesAndMilkshake.release.xcconfig"; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 		3D0250E01E2D012200654356 /* SmoothiesAndMilkshake */ = {
 			isa = PBXGroup;
 			children = (
+				3D3D4DA71E2E9139001C974F /* View */,
+				3D3D4DA41E2E8877001C974F /* DataSource */,
 				3D3D4D9F1E2D8191001C974F /* ViewControllers */,
 				3D3D4D961E2D16D2001C974F /* Model */,
 				3D0250E11E2D012200654356 /* AppDelegate.swift */,
@@ -97,6 +103,22 @@
 				3D3D4DA21E2D8AF6001C974F /* SmoothiesViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3D3D4DA41E2E8877001C974F /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				3D3D4DA51E2E88A8001C974F /* SmoothiesCollectionViewDataSource.swift */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
+		3D3D4DA71E2E9139001C974F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D3D4DA81E2E915C001C974F /* SmoothiesCollectionViewCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		AA624C8EFE77DC5D39D68FDB /* Frameworks */ = {
@@ -241,6 +263,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D3D4DA31E2D8AF6001C974F /* SmoothiesViewController.swift in Sources */,
+				3D3D4DA61E2E88A8001C974F /* SmoothiesCollectionViewDataSource.swift in Sources */,
+				3D3D4DA91E2E915C001C974F /* SmoothiesCollectionViewCell.swift in Sources */,
 				3D3D4D951E2D16CB001C974F /* Smoothies.swift in Sources */,
 				3D0250E41E2D012200654356 /* ViewController.swift in Sources */,
 				3D3D4D981E2D18CF001C974F /* SmoothiesAPI.swift in Sources */,

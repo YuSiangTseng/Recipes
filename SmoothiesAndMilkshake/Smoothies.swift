@@ -8,12 +8,13 @@
 
 import UIKit
 
-struct Smoothies {
+class Smoothies: Equatable {
     let label: String?
     let sourceURL: String?
     let imageURL: String?
     let ingredientLines: [String]?
     let dietLabels: [String]?
+    var image: UIImage?
     
     init(label: String, sourceURL: String, imageURL: String, ingredientLines: [String], dietLabels: [String]) {
         self.label = label
@@ -23,4 +24,8 @@ struct Smoothies {
         self.dietLabels = dietLabels
     }
     
+}
+
+func == (lhs: Smoothies, rhs: Smoothies) -> Bool {
+    return lhs.label == rhs.label
 }
