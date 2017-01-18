@@ -27,5 +27,5 @@ class Smoothies: Equatable {
 }
 
 func == (lhs: Smoothies, rhs: Smoothies) -> Bool {
-    return lhs.label == rhs.label
+    return lhs.sourceURL == rhs.sourceURL
 }

@@ -23,9 +23,11 @@ class SmoothieRecipesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //scrollView.addSubview(smoothieRecipeLabel)
         
+        scrollView.layer.borderColor = UIColor(red: 90/255, green: 202/255, blue: 250/255, alpha: 1).cgColor
+        scrollView.layer.borderWidth = 1.0
         showSmoothieRecipe(smoothie: self.smoothie)
+        moreInformationButton.addTarget(self, action: #selector(moreInformation), for: .touchUpInside)
     }
     
     func showSmoothieRecipe(smoothie: Smoothies?) {
@@ -34,12 +36,20 @@ class SmoothieRecipesViewController: UIViewController {
             self.smoothieImageView.image = smoothieInformation.image
             var indredientString = ""
             if let recipeStringArray = smoothieInformation.ingredientLines {
-                for recipe in recipeStringArray {
-                    indredientString += recipe + ", "
+                for i in 0 ..< recipeStringArray.count {
+                    if i == recipeStringArray.count - 1 {
+                        indredientString += recipeStringArray[i]
+                    } else {
+                         indredientString += recipeStringArray[i] + ", "
+                    }
                 }
                 self.smoothieRecipeLabel.text = indredientString
             }
         }
+        
+    }
+    
+    @objc func moreInformation() {
         
     }
     

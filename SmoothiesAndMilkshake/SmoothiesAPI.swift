@@ -62,7 +62,9 @@ struct SmoothiesAPI {
             let dietLabels = recipe["dietLabels"] as? [String] else {
                 return nil
         }
-        
+        if sourceURL == "http://www.myrecipes.com/recipe/fruity-breakfast-smoothie-197243/" {
+            return nil
+        }
         return Smoothies(label: label, sourceURL: sourceURL, imageURL: imageURL, ingredientLines: ingredientLines, dietLabels: dietLabels)
 
     }
