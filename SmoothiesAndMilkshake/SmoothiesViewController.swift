@@ -25,7 +25,26 @@ class SmoothiesViewController: UIViewController, UICollectionViewDelegate, UICol
         smoothiesCollectionView.delegate = self
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showRecipes" {
+            showRecipes(segue: segue)
+        }
+    }
+    
+    func showRecipes(segue: UIStoryboardSegue) {
+        if let selectedIndexPath = smoothiesCollectionView.indexPathsForSelectedItems?.first {
+            let smoothie = drinkStore?.allSmoothies[selectedIndexPath.row]
+            let destinationVC = segue.destination as! SmoothieRecipesViewController
+            destinationVC.drinkStore = drinkStore
+            destinationVC.smoothie = smoothie
+        }
+    }
+    
     //MARK:- Delegate
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showRecipes", sender: nil)
+    }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let smoothie = drinkStore?.allSmoothies[indexPath.row] {
