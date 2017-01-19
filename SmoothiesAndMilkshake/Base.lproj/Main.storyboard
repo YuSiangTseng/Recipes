@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="o1h-cw-b33">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="o1h-cw-b33">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -46,21 +46,33 @@
                                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="JFO-C0-QfD">
                                                     <rect key="frame" x="40" y="40" width="20" height="20"/>
                                                 </activityIndicatorView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRt-9c-STZ">
+                                                    <rect key="frame" x="3" y="83" width="94" height="15"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="lRt-9c-STZ" firstAttribute="trailing" secondItem="ISE-nP-o10" secondAttribute="trailing" constant="-3" id="0wd-st-fgv"/>
                                             <constraint firstItem="ISE-nP-o10" firstAttribute="centerY" secondItem="Jva-1p-XDN" secondAttribute="centerY" id="1VC-O5-VC7"/>
                                             <constraint firstItem="ISE-nP-o10" firstAttribute="leading" secondItem="Jva-1p-XDN" secondAttribute="leading" id="2Qw-2q-SNg"/>
                                             <constraint firstAttribute="bottom" secondItem="ISE-nP-o10" secondAttribute="bottom" id="6dN-Nw-kO0"/>
                                             <constraint firstItem="ISE-nP-o10" firstAttribute="centerX" secondItem="Jva-1p-XDN" secondAttribute="centerX" id="Ejr-xp-x1J"/>
+                                            <constraint firstItem="lRt-9c-STZ" firstAttribute="bottom" secondItem="ISE-nP-o10" secondAttribute="bottom" constant="-2" id="Fhf-JL-OyJ"/>
                                             <constraint firstAttribute="trailing" secondItem="ISE-nP-o10" secondAttribute="trailing" id="JLY-Lu-JMI"/>
+                                            <constraint firstItem="lRt-9c-STZ" firstAttribute="leading" secondItem="ISE-nP-o10" secondAttribute="leading" constant="3" id="UCe-xZ-Lib"/>
                                             <constraint firstItem="ISE-nP-o10" firstAttribute="top" secondItem="Jva-1p-XDN" secondAttribute="top" id="c1N-H0-Qgt"/>
                                             <constraint firstItem="JFO-C0-QfD" firstAttribute="centerY" secondItem="Jva-1p-XDN" secondAttribute="centerY" id="fXY-HS-a6E"/>
                                             <constraint firstItem="JFO-C0-QfD" firstAttribute="centerX" secondItem="Jva-1p-XDN" secondAttribute="centerX" id="hhG-2b-krj"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="smoothieImageView" destination="ISE-nP-o10" id="cqN-AH-x3B"/>
+                                            <outlet property="smoothieName" destination="lRt-9c-STZ" id="IGO-81-HMB"/>
                                             <outlet property="spinner" destination="JFO-C0-QfD" id="YAO-4N-HEJ"/>
                                         </connections>
                                     </collectionViewCell>
@@ -75,7 +87,11 @@
                             <constraint firstItem="drU-lx-EzC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kUF-qx-ebD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Smoothies" id="KCt-8L-Sqn"/>
+                    <navigationItem key="navigationItem" title="Smoothies" id="KCt-8L-Sqn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="xx7-0T-FRI">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="smoothiesCollectionView" destination="drU-lx-EzC" id="Y2p-hs-GMQ"/>
                         <segue destination="dDm-v6-WtD" kind="show" identifier="showRecipes" id="Yco-Ak-FA9"/>
@@ -165,7 +181,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="o1h-cw-b33" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="EVZ-Sq-qSn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EVZ-Sq-qSn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

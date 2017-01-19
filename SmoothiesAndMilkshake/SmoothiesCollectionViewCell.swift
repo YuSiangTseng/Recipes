@@ -12,6 +12,7 @@ class SmoothiesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var smoothieImageView: UIImageView!
     @IBOutlet var spinner: UIActivityIndicatorView!
+    @IBOutlet var smoothieName: UILabel!
     
     func updateSpinnerWithImage(image: UIImage?) {
         guard image != nil else {
@@ -23,9 +24,20 @@ class SmoothiesCollectionViewCell: UICollectionViewCell {
         smoothieImageView.image = image
     }
     
+    func updateSmoothieNameWithString(name: String?) {
+        guard name != nil else {
+            spinner.startAnimating()
+            smoothieName.text = nil
+            return
+        }
+        spinner.stopAnimating()
+        smoothieName.text = name
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        setUpShadowForLabel()
         updateSpinnerWithImage(image: nil)
     }
     
@@ -33,5 +45,12 @@ class SmoothiesCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
         
         updateSpinnerWithImage(image: nil)
+    }
+    
+    func setUpShadowForLabel() {
+        smoothieName.layer.shadowColor = UIColor.gray.cgColor
+        smoothieName.layer.shadowOpacity = 1
+        smoothieName.layer.shadowOffset = CGSize.zero
+        smoothieName.backgroundColor = UIColor(red: 90/255, green: 202/255, blue: 250/255, alpha: 0.4)
     }
 }

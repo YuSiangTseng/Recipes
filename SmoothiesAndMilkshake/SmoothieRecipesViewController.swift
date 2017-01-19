@@ -24,10 +24,13 @@ class SmoothieRecipesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollView.layer.borderColor = UIColor(red: 90/255, green: 202/255, blue: 250/255, alpha: 1).cgColor
-        scrollView.layer.borderWidth = 1.0
         showSmoothieRecipe(smoothie: self.smoothie)
         moreInformationButton.addTarget(self, action: #selector(moreInformation), for: .touchUpInside)
+    }
+    
+    func setUpBorderForCollectionView() {
+        scrollView.layer.borderColor = UIColor(red: 90/255, green: 202/255, blue: 250/255, alpha: 1).cgColor
+        scrollView.layer.borderWidth = 1.0
     }
     
     func showSmoothieRecipe(smoothie: Smoothies?) {
@@ -50,7 +53,11 @@ class SmoothieRecipesViewController: UIViewController {
     }
     
     @objc func moreInformation() {
-        
+        guard smoothie?.sourceURL != nil,
+        let url = URL(string: (smoothie?.sourceURL)!) else {
+            return
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
 }

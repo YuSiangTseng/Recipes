@@ -12,12 +12,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        loadData()
+        
+        return true
+    }
+    
+    func loadData() {
         let navigationController = window?.rootViewController as? UINavigationController
         let smoothiesViewController = navigationController?.topViewController as? SmoothiesViewController
+        smoothiesViewController?.adManager = AdManager()
         SmoothiesAPI().fetchSmoothies() {
             (smoothiesResult) -> Void in
             switch smoothiesResult {
@@ -28,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
-        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
