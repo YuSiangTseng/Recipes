@@ -20,6 +20,7 @@ enum PhotoError: Error {
 class DrinkStore {
     
     private (set) var allSmoothies: [Smoothies]
+    private (set) var searchSmoothies = [Smoothies]()
     
     init(allSmoothies: [Smoothies]) {
         self.allSmoothies = allSmoothies
@@ -55,6 +56,9 @@ class DrinkStore {
         
         return .Success(image)
     }
-
-
+    
+    func addSmoothiesToSearchResult(smoothie: Smoothies) {
+        searchSmoothies.append(smoothie)
+    }
+    
 }

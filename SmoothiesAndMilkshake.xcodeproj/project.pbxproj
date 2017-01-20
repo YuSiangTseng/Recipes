@@ -21,6 +21,9 @@
 		3D3D4DA91E2E915C001C974F /* SmoothiesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D4DA81E2E915C001C974F /* SmoothiesCollectionViewCell.swift */; };
 		3D3D4DAD1E2FAFAF001C974F /* SmoothieRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D4DAC1E2FAFAF001C974F /* SmoothieRecipesViewController.swift */; };
 		3DF050711E31287F00264B76 /* AdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF050701E31287F00264B76 /* AdManager.swift */; };
+		3DF050731E32880200264B76 /* SearchSmoothiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF050721E32880200264B76 /* SearchSmoothiesTableViewController.swift */; };
+		3DF050751E32919E00264B76 /* SearchSmoothiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF050741E32919E00264B76 /* SearchSmoothiesTableViewCell.swift */; };
+		3DF050771E32941600264B76 /* SearchSmoothiesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF050761E32941600264B76 /* SearchSmoothiesTableViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,9 @@
 		3D3D4DA81E2E915C001C974F /* SmoothiesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothiesCollectionViewCell.swift; sourceTree = "<group>"; };
 		3D3D4DAC1E2FAFAF001C974F /* SmoothieRecipesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothieRecipesViewController.swift; sourceTree = "<group>"; };
 		3DF050701E31287F00264B76 /* AdManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdManager.swift; sourceTree = "<group>"; };
+		3DF050721E32880200264B76 /* SearchSmoothiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSmoothiesTableViewController.swift; sourceTree = "<group>"; };
+		3DF050741E32919E00264B76 /* SearchSmoothiesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSmoothiesTableViewCell.swift; sourceTree = "<group>"; };
+		3DF050761E32941600264B76 /* SearchSmoothiesTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSmoothiesTableViewDataSource.swift; sourceTree = "<group>"; };
 		6528F63427032051FD3C5041 /* Pods-SmoothiesAndMilkshake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmoothiesAndMilkshake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmoothiesAndMilkshake/Pods-SmoothiesAndMilkshake.debug.xcconfig"; sourceTree = "<group>"; };
 		A2EAFFF225B9B356871DB293 /* Pods_SmoothiesAndMilkshake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmoothiesAndMilkshake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72810258A789D863F331359 /* Pods-SmoothiesAndMilkshake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmoothiesAndMilkshake.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmoothiesAndMilkshake/Pods-SmoothiesAndMilkshake.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +113,7 @@
 			children = (
 				3D3D4DA21E2D8AF6001C974F /* SmoothiesViewController.swift */,
 				3D3D4DAC1E2FAFAF001C974F /* SmoothieRecipesViewController.swift */,
+				3DF050721E32880200264B76 /* SearchSmoothiesTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -115,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				3D3D4DA51E2E88A8001C974F /* SmoothiesCollectionViewDataSource.swift */,
+				3DF050761E32941600264B76 /* SearchSmoothiesTableViewDataSource.swift */,
 			);
 			name = DataSource;
 			sourceTree = "<group>";
@@ -123,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				3D3D4DA81E2E915C001C974F /* SmoothiesCollectionViewCell.swift */,
+				3DF050741E32919E00264B76 /* SearchSmoothiesTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -281,8 +290,11 @@
 				3D3D4DA91E2E915C001C974F /* SmoothiesCollectionViewCell.swift in Sources */,
 				3D3D4DAD1E2FAFAF001C974F /* SmoothieRecipesViewController.swift in Sources */,
 				3D3D4D951E2D16CB001C974F /* Smoothies.swift in Sources */,
+				3DF050751E32919E00264B76 /* SearchSmoothiesTableViewCell.swift in Sources */,
+				3DF050731E32880200264B76 /* SearchSmoothiesTableViewController.swift in Sources */,
 				3D0250E41E2D012200654356 /* ViewController.swift in Sources */,
 				3DF050711E31287F00264B76 /* AdManager.swift in Sources */,
+				3DF050771E32941600264B76 /* SearchSmoothiesTableViewDataSource.swift in Sources */,
 				3D3D4D981E2D18CF001C974F /* SmoothiesAPI.swift in Sources */,
 				3D0250E21E2D012200654356 /* AppDelegate.swift in Sources */,
 				3D3D4D9E1E2D803F001C974F /* DrinkStore.swift in Sources */,

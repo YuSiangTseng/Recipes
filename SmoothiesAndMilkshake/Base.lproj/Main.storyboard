@@ -47,7 +47,7 @@
                                                     <rect key="frame" x="40" y="40" width="20" height="20"/>
                                                 </activityIndicatorView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRt-9c-STZ">
-                                                    <rect key="frame" x="3" y="83" width="94" height="15"/>
+                                                    <rect key="frame" x="0.0" y="85" width="100" height="15"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,14 +58,14 @@
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="lRt-9c-STZ" firstAttribute="trailing" secondItem="ISE-nP-o10" secondAttribute="trailing" constant="-3" id="0wd-st-fgv"/>
+                                            <constraint firstItem="lRt-9c-STZ" firstAttribute="trailing" secondItem="ISE-nP-o10" secondAttribute="trailing" id="0wd-st-fgv"/>
                                             <constraint firstItem="ISE-nP-o10" firstAttribute="centerY" secondItem="Jva-1p-XDN" secondAttribute="centerY" id="1VC-O5-VC7"/>
                                             <constraint firstItem="ISE-nP-o10" firstAttribute="leading" secondItem="Jva-1p-XDN" secondAttribute="leading" id="2Qw-2q-SNg"/>
                                             <constraint firstAttribute="bottom" secondItem="ISE-nP-o10" secondAttribute="bottom" id="6dN-Nw-kO0"/>
                                             <constraint firstItem="ISE-nP-o10" firstAttribute="centerX" secondItem="Jva-1p-XDN" secondAttribute="centerX" id="Ejr-xp-x1J"/>
-                                            <constraint firstItem="lRt-9c-STZ" firstAttribute="bottom" secondItem="ISE-nP-o10" secondAttribute="bottom" constant="-2" id="Fhf-JL-OyJ"/>
+                                            <constraint firstItem="lRt-9c-STZ" firstAttribute="bottom" secondItem="ISE-nP-o10" secondAttribute="bottom" id="Fhf-JL-OyJ"/>
                                             <constraint firstAttribute="trailing" secondItem="ISE-nP-o10" secondAttribute="trailing" id="JLY-Lu-JMI"/>
-                                            <constraint firstItem="lRt-9c-STZ" firstAttribute="leading" secondItem="ISE-nP-o10" secondAttribute="leading" constant="3" id="UCe-xZ-Lib"/>
+                                            <constraint firstItem="lRt-9c-STZ" firstAttribute="leading" secondItem="ISE-nP-o10" secondAttribute="leading" id="UCe-xZ-Lib"/>
                                             <constraint firstItem="ISE-nP-o10" firstAttribute="top" secondItem="Jva-1p-XDN" secondAttribute="top" id="c1N-H0-Qgt"/>
                                             <constraint firstItem="JFO-C0-QfD" firstAttribute="centerY" secondItem="Jva-1p-XDN" secondAttribute="centerY" id="fXY-HS-a6E"/>
                                             <constraint firstItem="JFO-C0-QfD" firstAttribute="centerX" secondItem="Jva-1p-XDN" secondAttribute="centerX" id="hhG-2b-krj"/>
@@ -90,6 +90,9 @@
                     <navigationItem key="navigationItem" title="Smoothies" id="KCt-8L-Sqn">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="xx7-0T-FRI">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="Dce-VJ-AA2" kind="show" identifier="searchSmoothies" id="sKE-7l-cqI"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -100,6 +103,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="972" y="103.89805097451276"/>
+        </scene>
+        <!--Search Smoothies Table View Controller-->
+        <scene sceneID="EOq-BO-NhU">
+            <objects>
+                <tableViewController id="Dce-VJ-AA2" customClass="SearchSmoothiesTableViewController" customModule="SmoothiesAndMilkshake" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2Lg-cq-GXh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchSmoothiesCell" id="RmG-Z8-HAA" customClass="SearchSmoothiesTableViewCell" customModule="SmoothiesAndMilkshake" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RmG-Z8-HAA" id="pwi-yw-sXP">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mBc-oh-HXy">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6k-fc-oIt">
+                                            <rect key="frame" x="0.0" y="23.5" width="375" height="20"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="mBc-oh-HXy" firstAttribute="width" secondItem="pwi-yw-sXP" secondAttribute="width" id="6N2-j3-Xj8"/>
+                                        <constraint firstItem="x6k-fc-oIt" firstAttribute="leading" secondItem="mBc-oh-HXy" secondAttribute="leading" id="9gD-4Z-E50"/>
+                                        <constraint firstItem="x6k-fc-oIt" firstAttribute="trailing" secondItem="mBc-oh-HXy" secondAttribute="trailing" id="9u5-9S-TOZ"/>
+                                        <constraint firstItem="mBc-oh-HXy" firstAttribute="centerX" secondItem="pwi-yw-sXP" secondAttribute="centerX" id="Ffc-Bf-7pQ"/>
+                                        <constraint firstItem="x6k-fc-oIt" firstAttribute="bottom" secondItem="mBc-oh-HXy" secondAttribute="bottom" id="R41-mZ-0x3"/>
+                                        <constraint firstItem="mBc-oh-HXy" firstAttribute="height" secondItem="pwi-yw-sXP" secondAttribute="height" id="Rx3-gm-T3j"/>
+                                        <constraint firstItem="mBc-oh-HXy" firstAttribute="centerY" secondItem="pwi-yw-sXP" secondAttribute="centerY" id="jT3-gF-OEa"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="smoothieImageView" destination="mBc-oh-HXy" id="Ugb-iQ-EZ8"/>
+                                    <outlet property="smoothieName" destination="x6k-fc-oIt" id="nV9-hb-XUJ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Dce-VJ-AA2" id="MMg-TS-UFY"/>
+                            <outlet property="delegate" destination="Dce-VJ-AA2" id="68F-JW-tPB"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uO7-8I-ZAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1956" y="-48"/>
         </scene>
         <!--Smoothie Recipes View Controller-->
         <scene sceneID="rvL-6f-PdS">
@@ -174,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="isF-Kx-yyx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1866.4000000000001" y="102.99850074962519"/>
+            <point key="canvasLocation" x="1855" y="645"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rBl-ED-Vg3">

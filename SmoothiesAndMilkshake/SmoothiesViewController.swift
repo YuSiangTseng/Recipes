@@ -51,6 +51,9 @@ class SmoothiesViewController: UIViewController, UICollectionViewDelegate, UICol
         if segue.identifier == "showRecipes" {
             showRecipes(segue: segue)
         }
+        else if segue.identifier == "searchSmoothies" {
+            searchSmoothies(segue: segue)
+        }
     }
     
     func showRecipes(segue: UIStoryboardSegue) {
@@ -60,6 +63,11 @@ class SmoothiesViewController: UIViewController, UICollectionViewDelegate, UICol
             destinationVC.drinkStore = drinkStore
             destinationVC.smoothie = smoothie
         }
+    }
+    
+    func searchSmoothies(segue: UIStoryboardSegue) {
+        let destinationVC = segue.destination as! SearchSmoothiesTableViewController
+        destinationVC.drinkStore = drinkStore
     }
     
     //MARK:- CollectionView Delegate
