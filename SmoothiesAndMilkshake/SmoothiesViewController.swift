@@ -99,4 +99,17 @@ class SmoothiesViewController: UIViewController, UICollectionViewDelegate, UICol
         return 2.0
     }
     
+    //MARK:- Utility
+    
+    func showErrorMessage() {
+        let title = "Internet problem"
+        let message = "Please press reload to try it again."
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let reloadAction = UIAlertAction(title: "Reload", style: .default) { (action) -> Void in
+            NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "reloadData")))
+        }
+        ac.addAction(reloadAction)
+        present(ac, animated: true, completion: nil)
+    }
+    
 }

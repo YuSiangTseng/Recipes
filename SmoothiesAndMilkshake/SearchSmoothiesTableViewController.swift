@@ -33,6 +33,21 @@ class SearchSmoothiesTableViewController: UITableViewController, UISearchBarDele
         tableView.rowHeight = 160
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowSearchSmoothieRecipes" {
+            showSearchSmoothieRecipe(segue: segue)
+        }
+    }
+    
+    func showSearchSmoothieRecipe(segue: UIStoryboardSegue) {
+        if let row = tableView.indexPathForSelectedRow?.row{
+            let smoothie = drinkStore?.searchSmoothies[row]
+            let destinationVC = segue.destination as! SmoothieRecipesViewController
+            destinationVC.drinkStore = drinkStore
+            destinationVC.smoothie = smoothie
+        }
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let allSmoothies = drinkStore?.allSmoothies,
         let searchSmoothie = searchBars.text else {

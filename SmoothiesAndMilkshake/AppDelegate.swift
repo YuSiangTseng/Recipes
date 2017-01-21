@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         loadData()
+        NotificationCenter.default.addObserver(self, selector: #selector(loadData), name: NSNotification.Name(rawValue: "reloadData"), object: nil)
         
         return true
     }
@@ -30,8 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             switch smoothiesResult {
             case let .Success(smoothies):
                 smoothiesViewController?.drinkStore = DrinkStore(allSmoothies: smoothies)
-            case .Failure(_): break
-                //currencyViewController?.showErrorMessage()
+            case .Failure(_):
+                smoothiesViewController?.showErrorMessage()
             }
         }
 

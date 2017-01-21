@@ -144,6 +144,7 @@
                                 <connections>
                                     <outlet property="smoothieImageView" destination="mBc-oh-HXy" id="Ugb-iQ-EZ8"/>
                                     <outlet property="smoothieName" destination="x6k-fc-oIt" id="nV9-hb-XUJ"/>
+                                    <segue destination="dDm-v6-WtD" kind="show" identifier="ShowSearchSmoothieRecipes" id="Nec-Q8-14u"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -176,8 +177,11 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWc-NN-7pS">
-                                <rect key="frame" x="245" y="619" width="118" height="30"/>
-                                <state key="normal" title="More Information"/>
+                                <rect key="frame" x="248" y="619" width="115" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="More Information">
+                                    <color key="titleColor" red="0.18424465540000001" green="0.6831726024" blue="0.98712617160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZf-5V-Fvf">
                                 <rect key="frame" x="16" y="463" width="343" height="138"/>
@@ -256,4 +260,7 @@
             <point key="canvasLocation" x="29.600000000000001" y="757.87106446776613"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Nec-Q8-14u"/>
+    </inferredMetricsTieBreakers>
 </document>
