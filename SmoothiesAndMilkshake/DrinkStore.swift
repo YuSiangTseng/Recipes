@@ -20,7 +20,7 @@ enum PhotoError: Error {
 class DrinkStore {
     
     private (set) var allSmoothies: [Smoothies]
-    private (set) var searchSmoothies = [Smoothies]()
+    var searchSmoothies = [Smoothies]()
     
     init(allSmoothies: [Smoothies]) {
         self.allSmoothies = allSmoothies

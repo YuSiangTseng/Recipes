@@ -34,21 +34,28 @@ class SearchSmoothiesTableViewController: UITableViewController, UISearchBarDele
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard drinkStore?.allSmoothies != nil,
+        guard let allSmoothies = drinkStore?.allSmoothies,
         let searchSmoothie = searchBars.text else {
             return
         }
-        for smoothie in (drinkStore?.allSmoothies)! {
-            if smoothie.label?.lowercased().contains(searchSmoothie.lowercased()) == true {
-                drinkStore?.fetchSmoothiePhoto(smoothie: smoothie, completion: { (result) in
-                    OperationQueue.main.addOperation({
-                        self.drinkStore?.addSmoothiesToSearchResult(smoothie: smoothie)
-                    })
-                })
-
+        drinkStore?.searchSmoothies.removeAll()
+        searchBars.resignFirstResponder()
+        let searchSmoothies = allSmoothies.filter() {
+            if let label = $0.label?.lowercased() {
+                if label.contains(searchSmoothie.lowercased()) {
+                    return true
+                }
             }
+            return false
         }
-        tableView.reloadData()
+        for (i, smoothie) in searchSmoothies.enumerated() {
+            drinkStore?.fetchSmoothiePhoto(smoothie: smoothie, completion: { (result) in
+                self.drinkStore?.addSmoothiesToSearchResult(smoothie: smoothie)
+                if i == searchSmoothies.count - 1 {
+                    self.tableView.reloadData()
+                }
+            })
+        }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

@@ -80,14 +80,10 @@ class SmoothiesViewController: UIViewController, UICollectionViewDelegate, UICol
         if let smoothie = drinkStore?.allSmoothies[indexPath.row] {
             drinkStore?.fetchSmoothiePhoto(smoothie: smoothie, completion: { (result) in
                 OperationQueue.main.addOperation({
-                    if let photoIndex = self.drinkStore?.allSmoothies.index(of: smoothie) {
-                        let photoIndexPath = NSIndexPath(row: photoIndex, section: 0)
-                        if let cell = self.smoothiesCollectionView.cellForItem(at: photoIndexPath as IndexPath) as? SmoothiesCollectionViewCell {
-                            cell.updateSpinnerWithImage(image: smoothie.image)
-                            cell.updateSmoothieNameWithString(name: smoothie.label)
-                        }
+                    if let cell = self.smoothiesCollectionView.cellForItem(at: indexPath as IndexPath) as? SmoothiesCollectionViewCell {
+                        cell.updateSpinnerWithImage(image: smoothie.image)
+                        cell.updateSmoothieNameWithString(name: smoothie.label)
                     }
-                    
                 })
             })
         }

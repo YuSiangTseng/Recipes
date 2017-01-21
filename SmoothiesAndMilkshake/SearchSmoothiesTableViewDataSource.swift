@@ -30,7 +30,6 @@ class SearchSmoothiesTableViewDataSource: NSObject, UITableViewDataSource {
             cell.smoothieName.text = drinkStore.searchSmoothies[indexPath.row].label
         }
         
-        
         return cell
     }
     

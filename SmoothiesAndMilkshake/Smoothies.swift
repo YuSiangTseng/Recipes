@@ -13,7 +13,7 @@ class Smoothies: Equatable {
     let sourceURL: String?
     let imageURL: String?
     let ingredientLines: [String]?
-    let dietLabels: [String]?
+    let dietLabels: [String]
     var image: UIImage?
     
     init(label: String, sourceURL: String, imageURL: String, ingredientLines: [String], dietLabels: [String]) {
