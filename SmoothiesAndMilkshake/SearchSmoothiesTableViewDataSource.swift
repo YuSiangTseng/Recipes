@@ -22,14 +22,9 @@ class SearchSmoothiesTableViewDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchSmoothiesCell") as!  SearchSmoothiesTableViewCell
-        if drinkStore.searchSmoothies.count == 0 {
-            //cell.smoothieImageView.image = nil
-            cell.smoothieName.text = "No result"
-        } else {
-            cell.smoothieImageView.image = drinkStore.searchSmoothies[indexPath.row].image
-            cell.smoothieName.text = drinkStore.searchSmoothies[indexPath.row].label
-        }
-        
+        cell.smoothieImageView.image = drinkStore.searchSmoothies[indexPath.row].image
+        cell.smoothieName.text = drinkStore.searchSmoothies[indexPath.row].label
+    
         return cell
     }
     

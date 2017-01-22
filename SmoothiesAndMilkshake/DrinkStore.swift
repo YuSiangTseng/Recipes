@@ -28,7 +28,7 @@ class DrinkStore {
     
     func fetchSmoothiePhoto(smoothie: Smoothies, completion: @escaping (ImageResult) -> Void) {
         
-        guard let url = URL(string: smoothie.imageURL!) else {
+        guard let url = URL(string: smoothie.imageURL) else {
             return
         }
         if let image = smoothie.image {

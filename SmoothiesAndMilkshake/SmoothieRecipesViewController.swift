@@ -28,26 +28,24 @@ class SmoothieRecipesViewController: UIViewController {
         moreInformationButton.addTarget(self, action: #selector(moreInformation), for: .touchUpInside)
     }
     
-    func setUpBorderForCollectionView() {
-        scrollView.layer.borderColor = UIColor(red: 90/255, green: 202/255, blue: 250/255, alpha: 1).cgColor
-        scrollView.layer.borderWidth = 1.0
-    }
+//    func setUpBorderForCollectionView() {
+//        scrollView.layer.borderColor = UIColor(red: 90/255, green: 202/255, blue: 250/255, alpha: 1).cgColor
+//        scrollView.layer.borderWidth = 1.0
+//    }
     
     func showSmoothieRecipe(smoothie: Smoothies?) {
         
         if let smoothieInformation = smoothie {
             self.smoothieImageView.image = smoothieInformation.image
             var indredientString = ""
-            if let recipeStringArray = smoothieInformation.ingredientLines {
-                for i in 0 ..< recipeStringArray.count {
-                    if i == recipeStringArray.count - 1 {
-                        indredientString += recipeStringArray[i]
-                    } else {
-                         indredientString += recipeStringArray[i] + ", "
-                    }
+            for i in 0 ..< smoothieInformation.ingredientLines.count {
+                if i == smoothieInformation.ingredientLines.count - 1 {
+                    indredientString += smoothieInformation.ingredientLines[i]
+                } else {
+                     indredientString += smoothieInformation.ingredientLines[i] + ", "
                 }
-                self.smoothieRecipeLabel.text = indredientString
             }
+            self.smoothieRecipeLabel.text = indredientString
         }
         
     }

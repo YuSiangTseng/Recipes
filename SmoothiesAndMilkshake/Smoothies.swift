@@ -9,10 +9,10 @@
 import UIKit
 
 class Smoothies: Equatable {
-    let label: String?
-    let sourceURL: String?
-    let imageURL: String?
-    let ingredientLines: [String]?
+    let label: String
+    let sourceURL: String
+    let imageURL: String
+    let ingredientLines: [String]
     let dietLabels: [String]
     var image: UIImage?
     

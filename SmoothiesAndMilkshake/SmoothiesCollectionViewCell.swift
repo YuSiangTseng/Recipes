@@ -25,7 +25,7 @@ class SmoothiesCollectionViewCell: UICollectionViewCell {
     }
     
     func updateSmoothieNameWithString(name: String?) {
-        guard name != nil else {
+        guard let name = name else {
             spinner.startAnimating()
             smoothieName.text = nil
             return

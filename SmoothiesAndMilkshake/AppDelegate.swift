@@ -26,11 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = window?.rootViewController as? UINavigationController
         let smoothiesViewController = navigationController?.topViewController as? SmoothiesViewController
         smoothiesViewController?.adManager = AdManager()
+        smoothiesViewController?.navigationItem.rightBarButtonItem?.isEnabled = false
         SmoothiesAPI().fetchSmoothies() {
             (smoothiesResult) -> Void in
             switch smoothiesResult {
             case let .Success(smoothies):
                 smoothiesViewController?.drinkStore = DrinkStore(allSmoothies: smoothies)
+                smoothiesViewController?.navigationItem.rightBarButtonItem?.isEnabled = true
             case .Failure(_):
                 smoothiesViewController?.showErrorMessage()
             }

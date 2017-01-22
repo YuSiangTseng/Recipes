@@ -18,10 +18,20 @@ class SearchSmoothiesTableViewController: UITableViewController, UISearchBarDele
     var searchBars:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 230, height: 20))
     var searchSmoothiesDataSource: SearchSmoothiesTableViewDataSource?
     
+    //MARK:- view life cycles
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpSearchBar()
+    }
+    
+    //MARK:- set up views
+    
+    func setUpSearchBar() {
         searchBars.delegate = self
+        searchBars.barTintColor = UIColor.white
+        UITextField.appearance(whenContainedInInstancesOf: [type(of: self.searchBars)]).tintColor = UIColor.gray
         let leftNavBarButton = UIBarButtonItem(customView: searchBars)
         self.navigationItem.rightBarButtonItem = leftNavBarButton
     }
@@ -32,6 +42,8 @@ class SearchSmoothiesTableViewController: UITableViewController, UISearchBarDele
         tableView.delegate = self
         tableView.rowHeight = 160
     }
+    
+    //MARK:- segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowSearchSmoothieRecipes" {
@@ -48,25 +60,35 @@ class SearchSmoothiesTableViewController: UITableViewController, UISearchBarDele
         }
     }
     
+    //MARK:- search bars delegate
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            searchSmoothies()
+    }
+    
+    func searchSmoothies() {
         guard let allSmoothies = drinkStore?.allSmoothies,
-        let searchSmoothie = searchBars.text else {
-            return
+            let searchSmoothie = searchBars.text else {
+                return
         }
         drinkStore?.searchSmoothies.removeAll()
         searchBars.resignFirstResponder()
         let searchSmoothies = allSmoothies.filter() {
-            if let label = $0.label?.lowercased() {
-                if label.contains(searchSmoothie.lowercased()) {
-                    return true
-                }
+            if $0.label.lowercased().contains(searchSmoothie.lowercased()) {
+                return true
+            } else {
+                return false
             }
-            return false
+        }
+        if searchSmoothies.isEmpty {
+            self.tableView.reloadData()
         }
         for (i, smoothie) in searchSmoothies.enumerated() {
+            refreshControl?.beginRefreshing()
             drinkStore?.fetchSmoothiePhoto(smoothie: smoothie, completion: { (result) in
                 self.drinkStore?.addSmoothiesToSearchResult(smoothie: smoothie)
                 if i == searchSmoothies.count - 1 {
+                    self.refreshControl?.endRefreshing()
                     self.tableView.reloadData()
                 }
             })
@@ -81,6 +103,23 @@ class SearchSmoothiesTableViewController: UITableViewController, UISearchBarDele
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBars.showsCancelButton = true
+    }
+    
+    //MARK:- SrollviewDelegate
+    
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        refreshControl = nil
+    }
+    
+    //MARK:- TableviewDelegate
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.frame.origin.x = 50.0
+        cell.alpha = 0.5
+        UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 20, options: .curveEaseIn, animations: {
+            cell.frame.origin.x = 0.0
+            cell.alpha = 1
+        }, completion: nil)
     }
 
 }

@@ -153,6 +153,17 @@
                             <outlet property="delegate" destination="Dce-VJ-AA2" id="68F-JW-tPB"/>
                         </connections>
                     </tableView>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="227-on-1Qi">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <attributedString key="attributedTitle">
+                            <fragment content="Searching.....">
+                                <attributes>
+                                    <font key="NSFont" size="15" name="AvenirNext-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uO7-8I-ZAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
