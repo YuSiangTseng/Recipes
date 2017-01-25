@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Smoothies: Equatable {
+class Smoothie: Equatable {
     let label: String
     let sourceURL: String
     let imageURL: String
@@ -26,6 +26,6 @@ class Smoothies: Equatable {
     
 }
 
-func == (lhs: Smoothies, rhs: Smoothies) -> Bool {
+func == (lhs: Smoothie, rhs: Smoothie) -> Bool {
     return lhs.sourceURL == rhs.sourceURL
 }

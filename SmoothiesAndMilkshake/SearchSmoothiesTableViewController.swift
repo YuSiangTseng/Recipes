@@ -15,7 +15,7 @@ class SearchSmoothiesTableViewController: UITableViewController, UISearchBarDele
             setUpTableView(drinkStore: drinkStore!)
         }
     }
-    var searchBars:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 230, height: 20))
+    var searchBars: UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 230, height: 20))
     var searchSmoothiesDataSource: SearchSmoothiesTableViewDataSource?
     
     //MARK:- view life cycles
@@ -31,9 +31,9 @@ class SearchSmoothiesTableViewController: UITableViewController, UISearchBarDele
     func setUpSearchBar() {
         searchBars.delegate = self
         searchBars.barTintColor = UIColor.white
-        UITextField.appearance(whenContainedInInstancesOf: [type(of: self.searchBars)]).tintColor = UIColor.gray
+        UITextField.appearance(whenContainedInInstancesOf: [type(of: searchBars)]).tintColor = UIColor.gray
         let leftNavBarButton = UIBarButtonItem(customView: searchBars)
-        self.navigationItem.rightBarButtonItem = leftNavBarButton
+        navigationItem.rightBarButtonItem = leftNavBarButton
     }
     
     func setUpTableView(drinkStore: DrinkStore) {
@@ -71,18 +71,18 @@ class SearchSmoothiesTableViewController: UITableViewController, UISearchBarDele
             let searchSmoothie = searchBars.text else {
                 return
         }
+        
         drinkStore?.searchSmoothies.removeAll()
         searchBars.resignFirstResponder()
+        
         let searchSmoothies = allSmoothies.filter() {
-            if $0.label.lowercased().contains(searchSmoothie.lowercased()) {
-                return true
-            } else {
-                return false
-            }
+            return $0.label.lowercased().contains(searchSmoothie.lowercased())
         }
+        
         if searchSmoothies.isEmpty {
             self.tableView.reloadData()
         }
+        
         for (i, smoothie) in searchSmoothies.enumerated() {
             refreshControl?.beginRefreshing()
             drinkStore?.fetchSmoothiePhoto(smoothie: smoothie, completion: { (result) in
@@ -93,6 +93,7 @@ class SearchSmoothiesTableViewController: UITableViewController, UISearchBarDele
                 }
             })
         }
+        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

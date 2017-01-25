@@ -15,7 +15,7 @@ class SmoothieRecipesViewController: UIViewController {
     @IBOutlet var moreInformationButton: UIButton!
     @IBOutlet var scrollView: UIScrollView!
     var drinkStore: DrinkStore?
-    var smoothie: Smoothies? {
+    var smoothie: Smoothie? {
         didSet {
             navigationItem.title = smoothie?.label
         }
@@ -33,10 +33,10 @@ class SmoothieRecipesViewController: UIViewController {
 //        scrollView.layer.borderWidth = 1.0
 //    }
     
-    func showSmoothieRecipe(smoothie: Smoothies?) {
+    func showSmoothieRecipe(smoothie: Smoothie?) {
         
         if let smoothieInformation = smoothie {
-            self.smoothieImageView.image = smoothieInformation.image
+            smoothieImageView.image = smoothieInformation.image
             var indredientString = ""
             for i in 0 ..< smoothieInformation.ingredientLines.count {
                 if i == smoothieInformation.ingredientLines.count - 1 {

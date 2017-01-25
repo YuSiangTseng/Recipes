@@ -48,9 +48,9 @@ class SmoothiesCollectionViewCell: UICollectionViewCell {
     }
     
     func setUpShadowForLabel() {
-        smoothieName.layer.shadowColor = UIColor.gray.cgColor
-        smoothieName.layer.shadowOpacity = 1
-        smoothieName.layer.shadowOffset = CGSize.zero
+//        smoothieName.layer.shadowColor = UIColor.gray.cgColor
+//        smoothieName.layer.shadowOpacity = 1
+//        smoothieName.layer.shadowOffset = CGSize.zero
         smoothieName.backgroundColor = UIColor(red: 90/255, green: 202/255, blue: 250/255, alpha: 0.4)
     }
 }

@@ -11,6 +11,11 @@ import UIKit
 class SmoothiesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet var smoothiesCollectionView: UICollectionView!
+    var smoothiesAPI: SmoothiesAPI! {
+        didSet {
+            loadData()
+        }
+    }
     var adManager: AdManager!
     var drinkStore: DrinkStore? {
         didSet {
@@ -28,6 +33,20 @@ class SmoothiesViewController: UIViewController, UICollectionViewDelegate, UICol
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: activityIndicator)
         activityIndicator.startAnimating()
         showBannerAd()
+    }
+    
+    func loadData() {
+        navigationItem.rightBarButtonItem?.isEnabled = false
+        smoothiesAPI.fetchSmoothies() {
+            (smoothiesResult) -> Void in
+            switch smoothiesResult {
+            case let .Success(smoothies):
+                self.drinkStore = DrinkStore(allSmoothies: smoothies)
+                self.navigationItem.rightBarButtonItem?.isEnabled = true
+            case .Failure(_):
+                self.showErrorMessage()
+            }
+        }
     }
     
     //MARK:- View set up
@@ -79,12 +98,9 @@ class SmoothiesViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let smoothie = drinkStore?.allSmoothies[indexPath.row] {
             drinkStore?.fetchSmoothiePhoto(smoothie: smoothie, completion: { (result) in
-                OperationQueue.main.addOperation({
-                    if let cell = self.smoothiesCollectionView.cellForItem(at: indexPath as IndexPath) as? SmoothiesCollectionViewCell {
-                        cell.updateSpinnerWithImage(image: smoothie.image)
-                        cell.updateSmoothieNameWithString(name: smoothie.label)
-                    }
-                })
+                let cell = cell as! SmoothiesCollectionViewCell
+                cell.updateSpinnerWithImage(image: smoothie.image)
+                cell.updateSmoothieNameWithString(name: smoothie.label)
             })
         }
     }
@@ -106,7 +122,7 @@ class SmoothiesViewController: UIViewController, UICollectionViewDelegate, UICol
         let message = "Please press reload to try it again."
         let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let reloadAction = UIAlertAction(title: "Reload", style: .default) { (action) -> Void in
-            NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "reloadData")))
+            self.loadData()
         }
         ac.addAction(reloadAction)
         present(ac, animated: true, completion: nil)

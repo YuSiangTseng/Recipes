@@ -19,14 +19,14 @@ enum PhotoError: Error {
 
 class DrinkStore {
     
-    private (set) var allSmoothies: [Smoothies]
-    var searchSmoothies = [Smoothies]()
+    private (set) var allSmoothies: [Smoothie]
+    var searchSmoothies = [Smoothie]()
     
-    init(allSmoothies: [Smoothies]) {
+    init(allSmoothies: [Smoothie]) {
         self.allSmoothies = allSmoothies
     }
     
-    func fetchSmoothiePhoto(smoothie: Smoothies, completion: @escaping (ImageResult) -> Void) {
+    func fetchSmoothiePhoto(smoothie: Smoothie, completion: @escaping (ImageResult) -> Void) {
         
         guard let url = URL(string: smoothie.imageURL) else {
             return
@@ -35,6 +35,7 @@ class DrinkStore {
             completion(.Success(image))
             return
         }
+        
         let session = URLSession.shared
         session.dataTask(with: url) { (data, response, error) in
             OperationQueue.main.addOperation({
@@ -57,7 +58,7 @@ class DrinkStore {
         return .Success(image)
     }
     
-    func addSmoothiesToSearchResult(smoothie: Smoothies) {
+    func addSmoothiesToSearchResult(smoothie: Smoothie) {
         searchSmoothies.append(smoothie)
     }
     

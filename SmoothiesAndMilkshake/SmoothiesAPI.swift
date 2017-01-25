@@ -9,7 +9,7 @@
 import Foundation
 
 enum SmoothiesResult {
-    case Success([Smoothies])
+    case Success([Smoothie])
     case Failure(Error)
 }
 
@@ -42,9 +42,9 @@ struct SmoothiesAPI {
             let smoothiesArray = jsonObject?["hits"] as? [[String : AnyObject]] else {
                 return .Failure(SmoothiesAPIError.InvalidJSONData)
         }
-        var finalSmoothies = [Smoothies]()
+        var finalSmoothies = [Smoothie]()
         for smoothiesJSON in smoothiesArray {
-            if let smoothie = smoothiesWithArray(json: smoothiesJSON) {
+            if let smoothie = smoothieWithArray(json: smoothiesJSON) {
                 finalSmoothies.append(smoothie)
             }
         }
@@ -52,7 +52,7 @@ struct SmoothiesAPI {
         return .Success(finalSmoothies)
     }
     
-    private func smoothiesWithArray(json: [String : AnyObject]) -> Smoothies? {
+    private func smoothieWithArray(json: [String : AnyObject]) -> Smoothie? {
         
         guard let recipe = json["recipe"] as? [String : AnyObject],
             let label = recipe["label"] as? String,
@@ -62,10 +62,12 @@ struct SmoothiesAPI {
             let dietLabels = recipe["dietLabels"] as? [String] else {
                 return nil
         }
+        
         if sourceURL == "http://www.myrecipes.com/recipe/fruity-breakfast-smoothie-197243/" {
             return nil
         }
-        return Smoothies(label: label, sourceURL: sourceURL, imageURL: imageURL, ingredientLines: ingredientLines, dietLabels: dietLabels)
+        
+        return Smoothie(label: label, sourceURL: sourceURL, imageURL: imageURL, ingredientLines: ingredientLines, dietLabels: dietLabels)
 
     }
 
